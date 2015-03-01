@@ -8,7 +8,7 @@ public class GUI extends JFrame{
     public GUI(){
         /* Inicia o Jframe */
         setTitle("theOldSchooMessenger v0.1");
-        setSize(500,500);
+        setSize(800,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLocation(400,100);
@@ -62,6 +62,7 @@ public class GUI extends JFrame{
         bar.add(editar);
         bar.add(exibir);
         bar.add(help);
+        bar.setVisible(true);
         
         /* Atribui a barra ao frame atual*/
         setJMenuBar(bar);        
@@ -86,10 +87,10 @@ public class GUI extends JFrame{
         add(areaDeTexto, BorderLayout.CENTER);
         
         areaDeTexto.transferFocus();
-                
+        setVisible(true);        
                
         
-        setVisible(true);
+        
 
         
         
