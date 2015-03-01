@@ -10,12 +10,13 @@ public class GUI extends JFrame{
         setTitle("theOldSchooMessenger v0.1");
         setSize(500,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        this.setVisible(true);
         this.setLocation(400,100);
         
         /* Inicia o JPanel*/
         JPanel painel = new JPanel();
-
+        add(painel);      
+        
         
         /*Inica o próprio o Menu e itens do menu*/
         //Arquivo
@@ -55,8 +56,6 @@ public class GUI extends JFrame{
         help.add(help3);
         help.add(help4);
         
-        
-        
         /* Inciar a barra de menu*/
         JMenuBar bar = new JMenuBar();
         bar.add(arquivo);
@@ -65,7 +64,36 @@ public class GUI extends JFrame{
         bar.add(help);
         
         /* Atribui a barra ao frame atual*/
-        this.setJMenuBar(bar);
+        setJMenuBar(bar);        
+        
+        /*Area de Texto mensagens*/
+        JTextArea areaDeTexto = new JTextArea(100,100);
+        areaDeTexto.setBackground(Color.black);
+        areaDeTexto.setColumns(20);
+        areaDeTexto.setRows(5);
+        areaDeTexto.setLineWrap(true);
+        areaDeTexto.setEditable(true);
+        areaDeTexto.setFont(new java.awt.Font("Lucida Console", 0, 14));
+        areaDeTexto.setForeground(Color.green);
+        areaDeTexto.setCaretColor(Color.green);
+        areaDeTexto.setText("Testando");  
+        areaDeTexto.setWrapStyleWord(true);
+        painel.add(areaDeTexto);        
+        JScrollPane scroll = new JScrollPane();
+        scroll.setViewportView(areaDeTexto);   
+        BorderLayout borda = new BorderLayout();
+        setLayout(borda);
+        add(areaDeTexto, BorderLayout.CENTER);
+        
+        areaDeTexto.transferFocus();
+                
+               
+        
+        setVisible(true);
+
+        
+        
+       
     }
     
 
