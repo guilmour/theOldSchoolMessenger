@@ -7,7 +7,7 @@ public class GUI extends JFrame{
     
     public GUI(){
         /* Inicia o Jframe */
-        setTitle("theOldSchooMessenger v0.1");
+        setTitle("theOldSchoolMessenger v0.1");
         setSize(800,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(400,100);
@@ -80,18 +80,13 @@ public class GUI extends JFrame{
         areaDeTexto.setText("Testando");  
         areaDeTexto.setWrapStyleWord(true);
         painel.add(areaDeTexto);        
-        JScrollPane scroll = new JScrollPane();
-        scroll.setViewportView(areaDeTexto);   
-        BorderLayout borda = new BorderLayout();
-        setLayout(borda);
-        add(areaDeTexto, BorderLayout.CENTER);
         
-        areaDeTexto.transferFocus();
-        setVisible(true);        
-               
+        //scrollbar
+        setPreferredSize(new Dimension(450, 110));
+        add(new JScrollPane(areaDeTexto), BorderLayout.CENTER);   
         
         
-
+        setVisible(true);    
         
         
        
