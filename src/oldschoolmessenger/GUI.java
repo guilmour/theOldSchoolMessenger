@@ -10,8 +10,8 @@ public class GUI extends JFrame{
         setTitle("theOldSchooMessenger v0.1");
         setSize(800,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
         this.setLocation(400,100);
+        //this.setResizable(false);
         
         /* Inicia o JPanel*/
         JPanel painel = new JPanel();
