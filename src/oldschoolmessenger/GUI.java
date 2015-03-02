@@ -68,12 +68,10 @@ public class GUI extends JFrame{
         setJMenuBar(bar);        
         
         /*Area de Texto mensagens*/
-        JTextArea areaDeTexto = new JTextArea(100,100);
+        JTextArea areaDeTexto = new JTextArea();
         areaDeTexto.setBackground(Color.black);
-        areaDeTexto.setColumns(20);
-        areaDeTexto.setRows(5);
         areaDeTexto.setLineWrap(true);
-        areaDeTexto.setEditable(true);
+        areaDeTexto.setEditable(false);
         areaDeTexto.setFont(new java.awt.Font("Lucida Console", 0, 14));
         areaDeTexto.setForeground(Color.green);
         areaDeTexto.setCaretColor(Color.green);
@@ -82,8 +80,22 @@ public class GUI extends JFrame{
         painel.add(areaDeTexto);        
         
         //scrollbar
-        setPreferredSize(new Dimension(450, 110));
-        add(new JScrollPane(areaDeTexto), BorderLayout.CENTER);   
+        add(new JScrollPane(areaDeTexto), BorderLayout.CENTER);
+        
+        /*Area de TCOmando e enviarr*/
+        JTextArea areaDeComando = new JTextArea();
+        areaDeComando.setBackground(Color.black);
+        areaDeComando.setRows(4);
+        areaDeComando.setLineWrap(true);
+        areaDeComando.setEditable(true);
+        areaDeComando.setFont(new java.awt.Font("Lucida Console", 0, 14));
+        areaDeComando.setForeground(Color.green);
+        areaDeComando.setCaretColor(Color.green); 
+        areaDeComando.setWrapStyleWord(true);
+        areaDeComando.setCaretPosition(0);
+        add(areaDeComando, BorderLayout.SOUTH);
+        add(new JScrollPane(areaDeComando), BorderLayout.SOUTH);
+        
         
         
         setVisible(true);    
