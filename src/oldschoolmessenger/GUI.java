@@ -6,8 +6,8 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 public class GUI extends JFrame implements KeyListener{    
-    public JTextArea areaDeTexto = new JTextArea();
-    JTextArea areaDeComando = new JTextArea();
+    public static JTextArea areaDeTexto = new JTextArea();
+    public static JTextArea areaDeComando = new JTextArea();
     JPanel painel = new JPanel();
     boolean enterPressed = false;
     
@@ -109,8 +109,8 @@ public class GUI extends JFrame implements KeyListener{
     
     }
     
-    public void ImprimeTexto(String texto){
-        this.areaDeTexto.append(texto);
+    public static void ImprimeTexto(String texto){
+        areaDeTexto.append(texto);
         
     }
     
@@ -132,7 +132,7 @@ public class GUI extends JFrame implements KeyListener{
         if(e.getKeyCode() == KeyEvent.VK_ENTER){
             enterPressed = true;
             //areaDeTexto.append("DEu certo\n");
-            areaDeComando.setText("");
+            areaDeComando.setText(null);
             enterPressed = false;
         }
         else

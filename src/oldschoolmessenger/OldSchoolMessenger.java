@@ -15,14 +15,16 @@ public class OldSchoolMessenger {
         textoComando = janela.areaDeComando.getText();
             if((textoComando.equals("\n/criar") || textoComando.equals("/criar\n")) && janela.enterPressed == true){
                 janela.ImprimeTexto("Criando novo server...");
-                //String[] arguments = new String[] {};
-                //new MultiThreadChatServerSync().main(arguments);
+                String[] arguments = new String[] {};
+                new CreateServer().main(arguments);
                 flag = 1;
+            }else if((textoComando.equals("\n/entrar") || textoComando.equals("/entrar\n")) && janela.enterPressed == true){
+                GUI.ImprimeTexto("Entre o ip para se conectar:\n");
+                textoComando = janela.areaDeComando.getText();
+                String[] arguments = new String[] {textoComando};
+                new ChatCliente().main(arguments);
+                
             }
         }
-        
-       
-        
     }
-    
 }
