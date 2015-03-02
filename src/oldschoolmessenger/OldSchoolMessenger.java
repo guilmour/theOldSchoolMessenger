@@ -21,7 +21,7 @@ public class OldSchoolMessenger {
             }else if((textoComando.equals("\n/entrar") || textoComando.equals("/entrar\n")) && janela.enterPressed == true){
                 GUI.ImprimeTexto("Entre o ip para se conectar:\n");
                 textoComando = janela.areaDeComando.getText();
-                String[] arguments = new String[] {textoComando};
+                String[] arguments = new String[] {"localhost"};
                 new ChatCliente().main(arguments);
                 
             }

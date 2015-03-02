@@ -16,7 +16,7 @@ public class CreateServer {
     Socket socketCliente = null;
     private static final int maxConexoes = 10;
     private static final threadsCliente[] threads = new threadsCliente[maxConexoes];
-    public static int porta = 2222;
+    public static int porta = 4444;
 
     public void main(String[] args) {
         

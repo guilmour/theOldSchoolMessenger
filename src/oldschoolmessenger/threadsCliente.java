@@ -21,7 +21,7 @@ public class threadsCliente extends Thread {
         maxConexoes = threads.length;
     }
     
-    public void inicia() {
+    public void run() {
         int maxConexoes = this.maxConexoes;
         threadsCliente[] threads = this.threads;
     
@@ -30,7 +30,7 @@ public class threadsCliente extends Thread {
             out = new PrintStream(socketCliente.getOutputStream());
             String nome;
             while (true) {
-                out.println("Defina seu user: ");
+                GUI.ImprimeTexto("Defina seu user: ");
                 nome = in.readLine().trim();
                 if (nome.indexOf('@') == -1) {
                     break;
@@ -39,7 +39,7 @@ public class threadsCliente extends Thread {
                 }
             }
             
-            out.println("Bem-vindo" + nome + "Para sair use /sair");
+            GUI.ImprimeTexto("Bem-vindo" + nome + "Para sair use /sair");
 
             synchronized (this) {
                 for (int i = 0; i < maxConexoes; i++) {
