@@ -1,9 +1,15 @@
 //guilmour.com
 package oldschoolmessenger;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.*;
 
-public class GUI extends JFrame{    
+public class GUI extends JFrame implements KeyListener{    
+    public JTextArea areaDeTexto = new JTextArea();
+    JTextArea areaDeComando = new JTextArea();
+    JPanel painel = new JPanel();
+    boolean enterPressed = false;
     
     public GUI(){
         /* Inicia o Jframe */
@@ -68,22 +74,22 @@ public class GUI extends JFrame{
         setJMenuBar(bar);        
         
         /*Area de Texto mensagens*/
-        JTextArea areaDeTexto = new JTextArea();
         areaDeTexto.setBackground(Color.black);
         areaDeTexto.setLineWrap(true);
         areaDeTexto.setEditable(false);
         areaDeTexto.setFont(new java.awt.Font("Lucida Console", 0, 14));
         areaDeTexto.setForeground(Color.green);
         areaDeTexto.setCaretColor(Color.green);
-        areaDeTexto.setText("Testando");  
+        //areaDeTexto.setText("Testando");  
         areaDeTexto.setWrapStyleWord(true);
-        painel.add(areaDeTexto);        
+        painel.add(areaDeTexto);
+
         
         //scrollbar
         add(new JScrollPane(areaDeTexto), BorderLayout.CENTER);
         
         /*Area de TCOmando e enviarr*/
-        JTextArea areaDeComando = new JTextArea();
+        
         areaDeComando.setBackground(Color.black);
         areaDeComando.setRows(4);
         areaDeComando.setLineWrap(true);
@@ -92,20 +98,51 @@ public class GUI extends JFrame{
         areaDeComando.setForeground(Color.green);
         areaDeComando.setCaretColor(Color.green); 
         areaDeComando.setWrapStyleWord(true);
-        areaDeComando.setCaretPosition(0);
+        //areaDeComando.setCaretPosition(0);
         add(areaDeComando, BorderLayout.SOUTH);
-        add(new JScrollPane(areaDeComando), BorderLayout.SOUTH);
+        add(new JScrollPane(areaDeComando), BorderLayout.SOUTH);  
+        areaDeComando.setText("\n");
+        areaDeComando.requestFocus();        
+        setVisible(true);   
+        areaDeComando.addKeyListener(this);
+
+    
+    }
+    
+    public void ImprimeTexto(String texto){
+        this.areaDeTexto.append(texto);
         
-        
-        
-        setVisible(true);    
-        
-        
-       
     }
     
 
     
+    public void PressedEnter(){
+        
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int n;
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            enterPressed = true;
+            //areaDeTexto.append("DEu certo\n");
+            areaDeComando.setText("");
+            enterPressed = false;
+        }
+        else
+            n=1;
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
     
 }
 
